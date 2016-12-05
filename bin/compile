@@ -170,6 +170,10 @@ summarize_build() {
   fi
 }
 
+header "Try to install dev-dependencies!"
+ENV_NODE=development yarn
+yarn run build
+
 header "Build succeeded!"
 summarize_build | output "$LOG_FILE"
 
