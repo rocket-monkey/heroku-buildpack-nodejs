@@ -170,12 +170,10 @@ summarize_build() {
   fi
 }
 
-header "Try to install dev-dependencies"
-export ENV_NODE=development
-yarn install
+header "Try to install dev-dependencies.."
+NODE_ENV=development yarn install
 
 header "Create production build"
-export ENV_NODE=production
 yarn run build
 
 header "Build succeeded!"
