@@ -176,6 +176,9 @@ NODE_ENV=development yarn install
 header "Create production build"
 yarn run build
 
+header "Remove dev-dependencies again.."
+npm prune --production
+
 header "Build succeeded!"
 summarize_build | output "$LOG_FILE"
 
