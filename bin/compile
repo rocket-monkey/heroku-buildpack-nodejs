@@ -173,9 +173,11 @@ summarize_build() {
 header "Try to install dev-dependencies.."
 NODE_ENV=development yarn install
 
-header "Recreate .env file from .env.production"
-rm .env
-cp .env.production .env
+if [ -f .env.production ]; then
+  header "Recreate .env file from .env.production"
+  rm .env
+  cp .env.production .env
+fi
 
 header "Create production build"
 yarn run build
