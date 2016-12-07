@@ -174,7 +174,12 @@ header "Try to install dev-dependencies.."
 NODE_ENV=development yarn install
 
 if [ ! -f .env ]; then
-    cp .env.production .env
+    header ".env file not found - create one"
+    if [ ! -f .env.production ]; then
+      cp .env.production .env
+    else
+      header ".env.production not found - game over!"
+    fi
 fi
 
 header "Create production build"
