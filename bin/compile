@@ -177,6 +177,7 @@ if [ -f .env.production ]; then
   header "Recreate .env file from .env.production"
   rm .env
   cp .env.production .env
+  cat .env
 fi
 
 header "Create production build"
